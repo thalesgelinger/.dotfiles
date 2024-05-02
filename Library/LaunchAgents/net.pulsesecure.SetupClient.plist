@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" \
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>Label</key>
+        <string>net.pulsesecure.SetupClient</string>
+        <key>Program</key>
+        <string>/Users/tgelin01/Library/Application Support/Pulse Secure/SetupClient/PulseSetupClient.app/Contents/MacOS/PulseSetupClient</string>
+        <key>WatchPaths</key>
+        <array>
+        <string>/Users/tgelin01/Library/Application Support/Pulse Secure/SetupClient/watchfile</string>
+        </array>
+</dict>
+</plist>

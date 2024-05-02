@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+going_to=$(find . -type d -maxdepth 1 | sed "s/\.\///g"| fzf)
+
+if [[ -z $going_to ]]; then 
+    exit 0
+fi
+
+echo "Going to : $going_to"
+cd "$going_to"

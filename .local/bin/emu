@@ -1,0 +1,2 @@
+#!/bin/bash
+emulator -avd $(emulator -list-avds | fzf)

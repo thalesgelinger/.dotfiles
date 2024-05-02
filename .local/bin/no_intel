@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# File path
+file_path="ios/Podfile"
+
+# Line to insert
+line_to_insert="config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'"
+
+# Perform the insertion
+sed -i '' "/config.build_settings\['CODE_SIGNING_ALLOWED'\] = 'NO'/a\\
+$line_to_insert
+" "$file_path"
+

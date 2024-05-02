@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+# PATH=$(tmux display-message -p "#{pane_current_path}")
+file_path=$(tmux display-message -p "#{pane_current_path}")
+
+
+script_selected=$(cat "$file_path/package.json" | jq .scripts | jq 'keys_unsorted[]' | sed "s/\"//g" | fzf-tmux -p --reverse)
+
+
+# Create a log system for this
+# yarn_logs=$HOME/.local/bin/yarn-logs
+# at=$(date +%Y%m%d%H%M%S)
+# log_file=$(echo "$yarn_logs/$at-$script_selected.log")
+
+# tmux new-window -c $file_path -n $script_selected bash -c "yarn $script_selected | less" 
+tmux new-window -c $file_path -n $script_selected sh -c "yarn start > test.log" 

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+body=$1
+
+if [[ -z $body ]]; then 
+    echo "Missing note body"
+    exit 1
+fi
+
+notename="TEST"
+
+osascript -e "tell application \"Notes\"
+  tell account \"Google\"
+    tell folder \"Notes\"
+      set body of note \"$notename\" to (get body of note \"$notename\" & return & \"$body\")
+    end tell
+  end tell
+end tell"
+

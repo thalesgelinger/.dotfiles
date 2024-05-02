@@ -1,0 +1,22 @@
+#!/usr/bin/osascript -l JavaScript
+
+const app = Application.currentApplication();
+
+app.includeStandardAdditions = true;
+
+const theAlertText = "It's TIMESHEET time";
+const theAlertMessage = "GO DO YOUR TIMESHEET NOW";
+
+const result = app.displayAlert(theAlertText, {
+    message: theAlertMessage,
+    as: "critical",
+    buttons: ["Timesheet"],
+    defaultButton: "Timesheet",
+    givingUpAfter: 60
+});
+
+const button_pressed = result.buttonReturned;
+
+if (button_pressed === "Timesheet") {
+    app.openLocation("https://dand365prod.operations.dynamics.com/?cmp=us31&mi=DefaultDashboard");
+}
