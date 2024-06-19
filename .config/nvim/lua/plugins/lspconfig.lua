@@ -58,6 +58,7 @@ return {
         lspconfig.htmx.setup {
             filetypes = { "html" }
         }
+        lspconfig.ocamllsp.setup {}
 
         lspconfig.gopls.setup({})
 
