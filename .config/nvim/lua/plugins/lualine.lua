@@ -4,7 +4,7 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                theme = 'catppuccin-mocha',
+                theme = 'tokyonight',
             },
             sections = {
                 lualine_c = {
