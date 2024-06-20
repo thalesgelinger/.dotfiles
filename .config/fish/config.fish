@@ -21,7 +21,6 @@ set -gx PATH $ANDROID_HOME/emulator $PATH
 set -gx PATH $ANDROID_HOME/tools/bin $PATH
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
 
-set -gx PATH /Users/tgelin01/.asdf/installs/rust/1.70.0/bin $PATH
 
 set -gx PATH /usr/bin:/bin:/usr/sbin:/sbin $PATH 
 set -gx PATH /Users/tgelin01/.local/bin $PATH 
@@ -30,13 +29,12 @@ set -gx PATH /opt/homebrew/opt/llvm/bin $PATH
 
 set -gx PATH $HOME/.maestro/bin $PATH
 
-set -gx FLUTTER_ROOT $(asdf where flutter) 
-set -gx PATH $(asdf where flutter)/bin $PATH
-
 set -gx C_INCLUDE_PATH /opt/homebrew/Cellar/json-c/0.17/include/json-c $C_INCLUDE_PATH
 set -gx LIBRARY_PATH /opt/homebrew/Cellar/json-c/0.17/lib $LIBRARY_PATH
 
 set -gx PATH $HOME/.maestro/bin $PATH
+
+set -gx PATH /Users/thalesgelinger/.local/share/mise/shims $PATH
 
 set GOPATH $HOME/go 
 
@@ -51,7 +49,7 @@ set -gx REACT_EDITOR nvim
 # ALIAS
 alias intel "arch -x86_64"
 
-alias ls "exa -la --icons"
+alias ls "eza -la --icons"
 alias cat "bat"
 alias .. "cd .."
 alias vim "nvim"
@@ -78,13 +76,7 @@ end
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
-set fish_greeting ""
-
-# ASDF
-. ~/.asdf/plugins/java/set-java-home.fish
-. /opt/homebrew/opt/asdf/libexec/asdf.fish
-
 tmux source-file ~/.config/tmux/tmux.conf
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
 zoxide init fish | source
 
+~/.local/bin/mise activate fish | source
