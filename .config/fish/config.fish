@@ -11,8 +11,8 @@ set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.jenv/bin $PATH
 
-set -gx ANDROID_HOME /Users/tgelin01/Library/Android/sdk
-set -gx ANDROID_SDK_ROOT /Users/tgelin01/Library/Android/sdk
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 set -gx ANDROID_SDK_HOME ~/Library/Android
 set -gx GRADLE_USER_HOME ~/.gradle
 
@@ -23,7 +23,7 @@ set -gx PATH $ANDROID_HOME/platform-tools $PATH
 
 
 set -gx PATH /usr/bin:/bin:/usr/sbin:/sbin $PATH 
-set -gx PATH /Users/tgelin01/.local/bin $PATH 
+set -gx PATH $HOME/.local/bin $PATH 
 
 set -gx PATH /opt/homebrew/opt/llvm/bin $PATH
 
@@ -35,6 +35,19 @@ set -gx LIBRARY_PATH /opt/homebrew/Cellar/json-c/0.17/lib $LIBRARY_PATH
 set -gx PATH $HOME/.maestro/bin $PATH
 
 set -gx PATH /Users/thalesgelinger/.local/share/mise/shims $PATH
+
+# LDFLAGS and CPPFLAGS
+# set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+# set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+
+# PKG-CONFIG
+set -gx PKG_CONFIG_SYSROOT_DIR $(xcrun --sdk iphoneos --show-sdk-path)
+set -gx PKG_CONFIG_PATH /opt/homebrew/Cellar/lua/5.4.6/lib/pkgconfig:$PKG_CONFIG_PATH
+
+
+set -gx ANDROID_NDK_HOME /Users/thalesgelinger/Library/Android/sdk/ndk/26.1.10909125
+set -gx PATH $ANDROID_NDK_HOME/toolchains/llvm/prebuilt/darwin-x86_64/bin $PATH
+
 
 set GOPATH $HOME/go 
 
@@ -73,10 +86,9 @@ if test -d (brew --prefix)"/share/fish/vendor_completions.d"
 end
 
 
-set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
-set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
 tmux source-file ~/.config/tmux/tmux.conf
 zoxide init fish | source
 
 ~/.local/bin/mise activate fish | source
+source /opt/homebrew/opt/asdf/libexec/asdf.fish

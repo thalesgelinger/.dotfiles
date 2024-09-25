@@ -28,7 +28,7 @@ if type -q grc
   for executable in $execs
     if type -q $executable
       function $executable --inherit-variable executable --wraps=$executable
-        grc.wrap $executable $argv
+        # grc.wrap $executable $argv
       end
     end
   end

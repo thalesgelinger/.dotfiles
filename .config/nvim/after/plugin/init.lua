@@ -6,3 +6,11 @@ vim.keymap.set("n", "<C-n>", function()
         end
     end)
 end)
+
+local function loveRun(opts)
+    vim.fn.system("open -n -a love .")
+end
+
+vim.api.nvim_create_user_command('Love', loveRun, { nargs = "*" })
+
+vim.keymap.set("n", "<leader>ll", loveRun)
