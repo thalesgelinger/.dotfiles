@@ -3,6 +3,8 @@ set -g theme_nerd_fonts yes
 set -g theme_powerline_fonts no
 set -g theme_short_path yes
 
+source ~/.config/fish/themes/tokyo
+
 # PATH
 
 set -gx PATH /usr/local/bin  $PATH
@@ -12,6 +14,7 @@ set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.jenv/bin $PATH
 
 set -gx ANDROID_HOME /Users/tgelin01/Library/Android/sdk
+set -gx ANDROID_NDK_HOME ~/Library/Android/sdk/ndk/23.1.7779620
 set -gx ANDROID_SDK_ROOT /Users/tgelin01/Library/Android/sdk
 set -gx ANDROID_SDK_HOME ~/Library/Android
 set -gx GRADLE_USER_HOME ~/.gradle
@@ -34,8 +37,6 @@ set -gx LIBRARY_PATH /opt/homebrew/Cellar/json-c/0.17/lib $LIBRARY_PATH
 
 set -gx PATH $HOME/.maestro/bin $PATH
 
-set -gx PATH /Users/thalesgelinger/.local/share/mise/shims $PATH
-
 set GOPATH $HOME/go 
 
 set XDG_CONFIG_HOME $HOME/.config
@@ -54,15 +55,7 @@ alias cat "bat"
 alias .. "cd .."
 alias vim "nvim"
 
-alias ai "ollama run mistral"
-
-
-
 alias systrace "$ANDROID_HOME/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a "
-
-alias cleanmetro "rm -rf node_modules; yarn; watchman watch-del-all; rm -fr $TMPDIR/haste-map-*; rm -rf $TMPDIR/metro-cache; yarn start -- --reset-cache;"
-alias reset "rm -rf node_modules; yarn; cd ios; pod deintegrate; pod install; cd ..;"
-
 
 if test -d (brew --prefix)"/share/fish/completions"
     set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/completions
@@ -77,6 +70,6 @@ set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
 tmux source-file ~/.config/tmux/tmux.conf
-zoxide init fish | source
+# zoxide init fish | source
 
-~/.local/bin/mise activate fish | source
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
