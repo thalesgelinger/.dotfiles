@@ -19,7 +19,7 @@ return {
 
         }
 
-        telescope.load_extension("git_worktree")
+        -- telescope.load_extension("git_worktree")
 
         local builtin = require('telescope.builtin')
         vim.keymap.set("n", '<leader>ff', builtin.find_files, {})
@@ -33,7 +33,7 @@ return {
         vim.keymap.set("n", '<leader>fb', '<cmd>Telescope git_branches<CR>')
 
         -- git worktree
-        vim.keymap.set("n", '<leader>ws', telescope.extensions.git_worktree.git_worktrees)
-        vim.keymap.set("n", '<leader>wa', telescope.extensions.git_worktree.create_git_worktree)
+        -- vim.keymap.set("n", '<leader>ws', telescope.extensions.git_worktree.git_worktrees)
+        -- vim.keymap.set("n", '<leader>wa', telescope.extensions.git_worktree.create_git_worktree)
     end
 }
