@@ -32,6 +32,9 @@ set -gx PATH /opt/homebrew/opt/llvm/bin $PATH
 
 set -gx PATH $HOME/.maestro/bin $PATH
 
+#Nix
+set -x PATH /run/current-system/sw/bin $PATH
+
 set -gx C_INCLUDE_PATH /opt/homebrew/Cellar/json-c/0.17/include/json-c $C_INCLUDE_PATH
 set -gx LIBRARY_PATH /opt/homebrew/Cellar/json-c/0.17/lib $LIBRARY_PATH
 
