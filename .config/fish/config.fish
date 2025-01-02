@@ -50,6 +50,11 @@ set XDG_CACHE_HOME $HOME/.cache
 set -gx EDITOR nvim
 set -gx REACT_EDITOR nvim
 
+
+#set -gx LUA_PATH "$(luarocks path --lr-path)"
+#set -gx LUA_CPATH "$(luarocks path --lr-cpath)"
+
+
 # ALIAS
 alias intel "arch -x86_64"
 
@@ -57,6 +62,9 @@ alias ls "eza -la --icons"
 alias cat "bat"
 alias .. "cd .."
 alias vim "nvim"
+alias g "git"
+
+alias docker "podman"
 
 alias systrace "$ANDROID_HOME/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a "
 
@@ -76,3 +84,4 @@ tmux source-file ~/.config/tmux/tmux.conf
 # zoxide init fish | source
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+. ~/.asdf/plugins/java/set-java-home.fish
