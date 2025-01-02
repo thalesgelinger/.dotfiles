@@ -15,9 +15,9 @@ set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.jenv/bin $PATH
 
-set -gx ANDROID_HOME /Users/tgelin01/Library/Android/sdk
+set -gx ANDROID_HOME /Users/thalesgelinger/Library/Android/sdk
 set -gx ANDROID_NDK_HOME ~/Library/Android/sdk/ndk/23.1.7779620
-set -gx ANDROID_SDK_ROOT /Users/tgelin01/Library/Android/sdk
+set -gx ANDROID_SDK_ROOT /Users/thalesgelinger/Library/Android/sdk
 set -gx ANDROID_SDK_HOME ~/Library/Android
 set -gx GRADLE_USER_HOME ~/.gradle
 
@@ -28,7 +28,7 @@ set -gx PATH $ANDROID_HOME/platform-tools $PATH
 
 
 set -gx PATH /usr/bin:/bin:/usr/sbin:/sbin $PATH 
-set -gx PATH /Users/tgelin01/.local/bin $PATH 
+set -gx PATH /Users/thalesgelinger/.local/bin $PATH 
 
 set -gx PATH /opt/homebrew/opt/llvm/bin $PATH
 
@@ -65,8 +65,6 @@ alias cat "bat"
 alias .. "cd .."
 alias vim "nvim"
 alias g "git"
-
-alias docker "podman"
 
 alias systrace "$ANDROID_HOME/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a "
 
