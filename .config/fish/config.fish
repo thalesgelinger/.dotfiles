@@ -1,3 +1,5 @@
+function fish_greeting; end
+
 # Themes
 set -g theme_nerd_fonts yes
 set -g theme_powerline_fonts no
