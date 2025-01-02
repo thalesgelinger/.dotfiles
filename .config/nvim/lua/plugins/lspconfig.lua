@@ -12,10 +12,13 @@ return {
         { 'hrsh7th/nvim-cmp' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'L3MON4D3/LuaSnip' },
-    },
-    config = function()
-        local lsp = require('lsp-zero')
 
+        { 'saghen/blink.cmp' }
+    },
+
+    config = function()
+
+        local lsp = require('lsp-zero')
 
         lsp.preset('recommended')
 
@@ -26,7 +29,7 @@ return {
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {
-                'tsserver',
+                'ts_ls',
                 'eslint',
                 'svelte',
                 'volar',
@@ -51,16 +54,38 @@ return {
 
         -- (Optional) Configure lua language server for neovim
         local lspconfig = require('lspconfig')
-        lspconfig.lua_ls.setup({})
-        lspconfig.dartls.setup {}
-        lspconfig.jdtls.setup {}
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities
+        })
+
         lspconfig.clangd.setup {}
-        lspconfig.htmx.setup {
-            filetypes = { "html" }
+        lspconfig.html.setup {
+            capabilities = capabilities
         }
+
+        lspconfig.htmx.setup {
+            capabilities = capabilities,
+            filetypes = { "html" },
+        }
+
         lspconfig.ocamllsp.setup {}
 
-        lspconfig.gopls.setup({})
+        lspconfig.gopls.setup({
+            capabilities = capabilities
+        })
+
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            settings = {
+                ["rust-analyzer"] = {
+                    cargo = {
+                        features = "all",
+                    },
+                },
+            },
+        })
 
 
         lspconfig.kotlin_language_server.setup {

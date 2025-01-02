@@ -108,5 +108,4 @@ vim.g.netrw_banner = 0
 
 -- sum all values
 
-
 return require('lazy').setup("plugins")
