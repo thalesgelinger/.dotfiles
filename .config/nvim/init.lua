@@ -93,6 +93,10 @@ vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_next)
 --Make Exectutable
 vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>")
 
+--Quick list
+vim.keymap.set('n', '<leader>l', "<cmd>cnext<CR>")
+vim.keymap.set('n', '<leader>a', "<cmd>cprev<CR>")
+
 vim.g.dap_virtual_text = true
 
 vim.g.vim_svelte_plugin_load_full_syntax = 1
