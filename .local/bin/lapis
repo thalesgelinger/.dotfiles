@@ -1,0 +1,3 @@
+#!/bin/sh
+
+LUAROCKS_SYSCONFDIR='/Users/tgelin01/.asdf/installs/lua/5.4.7/luarocks/etc/luarocks' exec '/Users/tgelin01/.asdf/installs/lua/5.4.7/bin/lua' -e 'package.path="/Users/tgelin01/.asdf/installs/lua/5.4.7/luarocks/share/lua/5.4/?.lua;/Users/tgelin01/.asdf/installs/lua/5.4.7/luarocks/share/lua/5.4/?/init.lua;"..package.path;package.cpath="/Users/tgelin01/.asdf/installs/lua/5.4.7/luarocks/lib/lua/5.4/?.so;"..package.cpath;local k,l,_=pcall(require,"luarocks.loader") _=k and l.add_context("lapis","1.16.0-1")' '/Users/tgelin01/.asdf/installs/lua/5.4.7/luarocks/lib/luarocks/rocks-5.4/lapis/1.16.0-1/bin/lapis' "$@"
