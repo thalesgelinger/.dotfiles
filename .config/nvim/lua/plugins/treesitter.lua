@@ -13,19 +13,19 @@ return {
             },
         })
 
-        local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-        parser_config.elua = {
-            install_info = {
-                url = "/Users/tgelin01/Projects/treesitter-elua", -- Path to your grammar repo
-                files = { "src/parser.c" },
-            },
-            filetype = "elua",
-        }
+        -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+        -- parser_config.elua = {
+        --     install_info = {
+        --         url = "/Users/tgelin01/Projects/treesitter-elua", -- Path to your grammar repo
+        --         files = { "src/parser.c" },
+        --     },
+        --     filetype = "elua",
+        -- }
 
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
-            ensure_installed = { "typescript", "lua", "rust", "svelte", "html", "cmake", "c", "query", "elua" },
+            ensure_installed = { "typescript", "lua", "rust", "svelte", "html", "cmake", "c", "query" },
             -- ensure_installed = "maintained",
             sync_install = false,
             auto_install = true,

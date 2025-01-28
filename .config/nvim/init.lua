@@ -94,8 +94,8 @@ vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>")
 
 --Quick list
-vim.keymap.set('n', '<leader>l', "<cmd>cnext<CR>")
-vim.keymap.set('n', '<leader>a', "<cmd>cprev<CR>")
+vim.keymap.set('n', '<leader>cn', "<cmd>cnext<CR>")
+vim.keymap.set('n', '<leader>cp', "<cmd>cprev<CR>")
 
 vim.g.dap_virtual_text = true
 

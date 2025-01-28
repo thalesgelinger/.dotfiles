@@ -3,6 +3,11 @@ local act = wezterm.action
 
 local keys = {
     {
+        key = 'r',
+        mods = 'CMD|SHIFT',
+        action = wezterm.action.ReloadConfiguration,
+    },
+    {
         key = "-",
         mods = "LEADER",
         action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
@@ -46,7 +51,6 @@ local keys = {
         mods = 'LEADER',
         action = act.PromptInputLine {
             description = 'Enter new name for tab',
-            initial_value = '',
             action = wezterm.action_callback(function(window, pane, line)
                 if line then
                     window:active_tab():set_title(line)
@@ -75,7 +79,16 @@ local function get_folders_choices(directory)
 end
 
 local function sessionizer()
-    local choices = get_folders_choices(os.getenv("HOME") .. "/Projects")
+    local choices = {}
+    local work = get_folders_choices(os.getenv("HOME") .. "/Projects/work")
+    local personal = get_folders_choices(os.getenv("HOME") .. "/Projects/personal")
+
+    for _, v in ipairs(work) do
+        table.insert(choices, v)
+    end
+    for _, v in ipairs(personal) do
+        table.insert(choices, v)
+    end
 
     return act.InputSelector {
         fuzzy = true,

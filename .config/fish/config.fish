@@ -42,6 +42,7 @@ set -gx LIBRARY_PATH /opt/homebrew/Cellar/json-c/0.17/lib $LIBRARY_PATH
 
 set -gx PATH $HOME/.maestro/bin $PATH
 
+
 set GOPATH $HOME/go 
 
 set XDG_CONFIG_HOME $HOME/.config
@@ -52,6 +53,7 @@ set XDG_CACHE_HOME $HOME/.cache
 set -gx EDITOR nvim
 set -gx REACT_EDITOR nvim
 
+source ~/.config/fish/api_keys/keys
 
 #set -gx LUA_PATH "$(luarocks path --lr-path)"
 #set -gx LUA_CPATH "$(luarocks path --lr-cpath)"
@@ -80,7 +82,7 @@ end
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
-tmux source-file ~/.config/tmux/tmux.conf
+#tmux source-file ~/.config/tmux/tmux.conf
 # zoxide init fish | source
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish

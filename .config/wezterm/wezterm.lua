@@ -2,7 +2,7 @@ require "events"
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.keys = require "keybinds" 
+config.keys = require "keybinds"
 
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 0
