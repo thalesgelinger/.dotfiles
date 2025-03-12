@@ -11,7 +11,24 @@ return {
             use_nvim_cmp_as_default = true,
             nerd_font_variant = 'mono'
         },
+        sources = {
+            per_filetype = {
+                codecompanion = { "codecompanion" },
+            }
+        },
 
         signature = { enabled = true }
-    }
+    },
+    config = function()
+        require("codecompanion").setup({
+            strategies = {
+                chat = {
+                    adapter = "anthropic",
+                },
+                inline = {
+                    adapter = "anthropic",
+                },
+            },
+        })
+    end
 }
