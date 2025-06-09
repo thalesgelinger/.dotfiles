@@ -43,9 +43,9 @@ return {
         require('mason-lspconfig').setup({
             ensure_installed = {
                 "lua_ls", "svelte", "volar", "gopls", "clangd",
-                "html", "htmx", "rust_analyzer",
-                "kotlin_language_server"
+                "html", "htmx", "rust_analyzer", "elixirls"
             },
+            automatic_installation = true,
         })
 
         -- Helper function to setup servers with base config and overrides

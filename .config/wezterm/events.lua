@@ -5,16 +5,24 @@ wezterm.on('update-right-status', function(window, pane)
     window:set_right_status(window:active_workspace())
 end)
 
+
 local function tab_title(tab_info)
     local title = tab_info.tab_title
-    -- if the tab title is explicitly set, take that
+
     if title and #title > 0 then
         return title
     end
-    -- Otherwise, use the title from the active pane
-    -- in that tab
-    return tab_info.active_pane.title
+
+    local pane_title = tab_info.active_pane.title
+
+    if pane_title and #pane_title > 0 then
+        local first_word = pane_title:match("^(%S+)")
+        return first_word
+    end
+
+    return "fish"
 end
+
 
 wezterm.on(
     'format-tab-title',

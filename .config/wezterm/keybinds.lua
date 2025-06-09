@@ -1,4 +1,6 @@
+require "utils"
 local wezterm = require 'wezterm'
+local jumper_keys = require "jumper"
 local act = wezterm.action
 
 local keys = {
@@ -8,12 +10,12 @@ local keys = {
         action = wezterm.action.ReloadConfiguration,
     },
     {
-        key = "-",
+        key = "%",
         mods = "LEADER",
         action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
     },
     {
-        key = "\\",
+        key = "\"",
         mods = "LEADER",
         action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
@@ -37,6 +39,13 @@ local keys = {
         },
     },
     {
+        key = 'd',
+        mods = 'LEADER',
+        action = wezterm.action.SpawnCommandInNewTab {
+            args = { '/opt/homebrew/bin/lazydocker' },
+        },
+    },
+    {
         key = 'c',
         mods = 'LEADER',
         action = act.SpawnTab 'CurrentPaneDomain',
@@ -56,6 +65,44 @@ local keys = {
                     window:active_tab():set_title(line)
                 end
             end),
+        },
+    },
+    {
+        key = "h",
+        mods = "LEADER",
+        action = wezterm.action { ActivatePaneDirection = "Left" }
+    },
+
+    {
+        key = "l",
+        mods = "LEADER",
+        action = wezterm.action { ActivatePaneDirection = "Right" }
+    },
+
+    {
+        key = "k",
+        mods = "LEADER",
+        action = wezterm.action { ActivatePaneDirection = "Up" }
+    },
+
+    {
+        key = "j",
+        mods = "LEADER",
+        action = wezterm.action { ActivatePaneDirection = "Down" }
+    },
+    {
+        key = 'p',
+        mods = 'LEADER',
+        action = wezterm.action.SplitHorizontal {
+            args = { '/opt/homebrew/bin/nvim', os.getenv("HOME") .. '/.config/wezterm/jumps.lua' }
+        },
+    },
+
+    {
+        key = 'n',
+        mods = 'LEADER',
+        action = wezterm.action.SplitHorizontal {
+            args = { '/opt/homebrew/bin/nvim', os.getenv("HOME") .. '/Documents/daily_notes/' .. os.date("%Y-%m-%d") .. ".md" }
         },
     },
 
@@ -121,5 +168,7 @@ for i = 1, 8 do
         action = act.ActivateTab(i - 1),
     })
 end
+
+table.merge(keys, jumper_keys)
 
 return keys
