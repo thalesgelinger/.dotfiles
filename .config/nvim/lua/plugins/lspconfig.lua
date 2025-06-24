@@ -20,12 +20,24 @@ return {
             ts_ls = {},
             elixirls = {
                 cmd = { os.getenv("HOME") .. "/Projects/lsp/elixir/language_server.sh" },
+            },
+            tailwindCSS = {
+                settings = {
+                    tailwindCSS = {
+                        experimental = {
+                            classRegex = {
+                                "tw`([^`]*)",
+                                'tw\\("([^"]*)'
+                            }
+                        }
+                    }
+                }
             }
         }
     },
     config = function(_, opts)
         local lspconfig = require('lspconfig')
-        
+
         -- Setup LSP keybindings when LSP attaches
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('UserLspConfig', {}),
