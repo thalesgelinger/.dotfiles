@@ -86,4 +86,16 @@ set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 # zoxide init fish | source
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
-. ~/.asdf/plugins/java/set-java-home.fish
+# . ~/.asdf/plugins/java/set-java-home.fish
+
+# Added by Windsurf
+fish_add_path /Users/thalesgelinger/.codeium/windsurf/bin
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/thalesgelinger/.lmstudio/bin
+# End of LM Studio CLI section
+

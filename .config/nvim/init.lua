@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- require('reacthelpers')
+-- require('debug-completion') -- Temporary debug helper
 vim.g.mapleader = " "
 
 vim.opt.guicursor = ""
@@ -45,7 +46,7 @@ vim.opt.undofile = true
 
 vim.opt.scrolloff = 8
 
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<leader>f", "<cmd>Prettier<CR>")
 
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
@@ -94,8 +95,8 @@ vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>")
 
 --Quick list
-vim.keymap.set('n', '<leader>cn', "<cmd>cnext<CR>")
-vim.keymap.set('n', '<leader>cp', "<cmd>cprev<CR>")
+vim.keymap.set('n', '<leader>nn', "<cmd>cnext<CR>")
+vim.keymap.set('n', '<leader>np', "<cmd>cprev<CR>")
 
 vim.g.dap_virtual_text = true
 

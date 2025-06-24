@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:4c566a
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:88c0d0
@@ -40,4 +40,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d434c5e
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/opt/homebrew/opt/llvm/bin\x1e/opt/homebrew/opt/libpq/bin
+SETUVAR fish_user_paths:/Users/thalesgelinger/\x2easdf/installs/nodejs/23\x2e11\x2e0/bin\x1e/Users/thalesgelinger/\x2ecodeium/windsurf/bin\x1e/opt/homebrew/opt/llvm/bin\x1e/opt/homebrew/opt/libpq/bin

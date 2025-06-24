@@ -52,6 +52,18 @@ return {
         vim.keymap.set("n", '<leader>fb', '<cmd>Telescope git_branches<CR>')
 
 
+        local function find_js_files()
+            builtin.live_grep({
+                prompt_title = "Search JavaScript Files (excluding test files)",
+                additional_args = function(opts)
+                    return { '--glob', '!*.spec.js', '--glob', '!*.test.js', '--glob', '!*.spec.ts', '--glob',
+                        '!*.test.ts' }
+                end,
+            })
+        end
+
+        vim.keymap.set('n', '<leader>fj', find_js_files)
+
         -- git worktree
         -- vim.keymap.set("n", '<leader>ws', telescope.extensions.git_worktree.git_worktrees)
         -- vim.keymap.set("n", '<leader>wa', telescope.extensions.git_worktree.create_git_worktree)

@@ -4,6 +4,8 @@ local t = ls.text_node
 local i = ls.insert_node
 local f = ls.function_node
 
+require("luasnip.loaders.from_vscode").lazy_load()
+ls.config.setup {}
 
 ls.add_snippets("lua", {
     s("hello", {

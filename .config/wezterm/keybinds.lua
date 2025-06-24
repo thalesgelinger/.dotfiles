@@ -127,12 +127,18 @@ end
 
 local function sessionizer()
     local choices = {}
-    local work = get_folders_choices(os.getenv("HOME") .. "/Projects/work")
+    local stcx = get_folders_choices(os.getenv("HOME") .. "/Projects/stcx")
+    local peak = get_folders_choices(os.getenv("HOME") .. "/Projects/peak")
     local personal = get_folders_choices(os.getenv("HOME") .. "/Projects/personal")
 
-    for _, v in ipairs(work) do
+    for _, v in ipairs(stcx) do
         table.insert(choices, v)
     end
+
+    for _, v in ipairs(peak) do
+        table.insert(choices, v)
+    end
+
     for _, v in ipairs(personal) do
         table.insert(choices, v)
     end
