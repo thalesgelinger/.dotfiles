@@ -18,6 +18,16 @@ return {
         servers = {
             lua_ls = {},
             ts_ls = {},
+            svelte = { },
+            superhtml = {
+                cmd = { os.getenv("HOME") .. "/.local/bin/superhtml", "lsp" },
+            },
+            gopls = {
+                analyses = {
+                    unusedparams = true,
+                },
+                staticcheck = true,
+            },
             elixirls = {
                 cmd = { os.getenv("HOME") .. "/Projects/lsp/elixir/language_server.sh" },
             },
@@ -32,11 +42,21 @@ return {
                         }
                     }
                 }
-            }
+            },
+            tinymist = {}
         }
     },
     config = function(_, opts)
         local lspconfig = require('lspconfig')
+
+        -- Enable virtual text and warnings
+        vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            underline = true,
+            update_in_insert = false,
+            severity_sort = false,
+        })
 
         -- Setup LSP keybindings when LSP attaches
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -50,8 +70,8 @@ return {
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
                 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-                vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+                vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ open_in_tab = true }) end, opts)
+                -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
                 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
                 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
             end,

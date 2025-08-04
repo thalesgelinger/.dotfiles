@@ -2,7 +2,8 @@ return {
     'saghen/blink.cmp',
     dependencies = {
         'rafamadriz/friendly-snippets',
-        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+        { 'L3MON4D3/LuaSnip',      version = 'v2.*' },
+        { "fang2hou/blink-copilot" }
     },
     version = 'v0.*',
     ---@module 'blink.cmp'
@@ -18,10 +19,10 @@ return {
         snippets = { preset = 'luasnip' },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+            default = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
             per_filetype = {
                 sql = { 'snippets', 'dadbod', 'buffer' },
-                lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
+                lua = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
             },
             providers = {
                 dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
@@ -29,6 +30,12 @@ return {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",
                     score_offset = 100,
+                },
+                copilot = {
+                    name = "copilot",
+                    module = "blink-copilot",
+                    score_offset = 100,
+                    async = true,
                 },
             },
         },
@@ -47,7 +54,7 @@ return {
                 enabled = true,
                 min_width = 15,
                 max_height = 10,
-                border = 'none',
+                border = 'rounded',
                 winblend = 0,
                 winhighlight =
                 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
@@ -63,6 +70,9 @@ return {
                 auto_show = true,
                 auto_show_delay_ms = 200,
                 treesitter_highlighting = true,
+                window = {
+                    border = 'rounded'
+                }
             },
             ghost_text = {
                 enabled = true,
