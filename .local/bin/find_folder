@@ -1,1 +1,0 @@
-cd $(ls -d */ | awk '{print $NF}' | fzf) 

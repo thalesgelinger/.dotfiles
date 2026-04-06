@@ -1,1 +1,0 @@
-tmux new -c "$(cd "$(ls -d */ | awk '{print $NF}' | fzf)" && pwd)" -s "$(basename "$(pwd)")"
