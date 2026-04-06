@@ -21,4 +21,9 @@ This configs are made to work with macos
 
 `stow .`
 
+
+Hammerspoon usefull stuff
+```
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+```
 SHAZAM!
