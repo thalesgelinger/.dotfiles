@@ -1,0 +1,99 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "llama3.1:8b": {
+          "name": "Llama 3.1"
+        },
+        "qwen3.5:9b": {
+          "name": "Qwen 3.5 9b"
+        }
+      }
+    }
+  },
+  "command": {
+    "multi-phase": {
+      "template": "Make this plan multi-phased",
+      "description": "Breakdown a long plan into multi phased to get better results from context windo"
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "ctx7sk-b8d04c26-ace8-4049-8b66-d44b6a789c9c"
+      },
+      "enabled": false
+    },
+    "expo": {
+      "type": "remote",
+      "url": "https://mcp.expo.dev/mcp",
+      "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": false
+    },
+    "figma": {
+      "type": "remote",
+      "enabled": false,
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "maestro": {
+      "type": "local",
+      "command": [
+        "maestro",
+        "mcp"
+      ],
+      "enabled": false
+    },
+    "linear": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/sse"
+      ],
+      "enabled": false
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "enabled": false
+    },
+    "plane": {
+      "type": "local",
+      "command": [
+        "npx",
+        "mcp-remote@latest",
+        "https://mcp.plane.so/http/mcp"
+      ],
+      "enabled": true
+    },
+    "pencil": {
+      "command": [
+        "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+        "--app",
+        "desktop"
+      ],
+      "enabled": false,
+      "type": "local"
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "tokyo-bg": "none",
+    "tokyo-bg-dark": "#1a1b26",
+    "tokyo-bg-panel": "#24283b",
+    "tokyo-bg-element": "#414868",
+    "tokyo-fg": "#c0caf5",
+    "tokyo-fg-muted": "#565f89",
+    "tokyo-fg-dark": "#a9b1d6",
+    "tokyo-blue": "#7aa2f7",
+    "tokyo-blue-dark": "#565f89",
+    "tokyo-cyan": "#7dcfff",
+    "tokyo-green": "#9ece6a",
+    "tokyo-magenta": "#bb9af7",
+    "tokyo-orange": "#ff9e64",
+    "tokyo-purple": "#9d7cd8",
+    "tokyo-red": "#f7768e",
+    "tokyo-teal": "#1abc9c",
+    "tokyo-yellow": "#e0af68"
+  },
+  "theme": {
+    "primary": {
+      "dark": "tokyo-blue",
+      "light": "tokyo-blue-dark"
+    },
+    "secondary": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "accent": {
+      "dark": "tokyo-magenta",
+      "light": "tokyo-magenta"
+    },
+    "error": {
+      "dark": "tokyo-red",
+      "light": "tokyo-red"
+    },
+    "warning": {
+      "dark": "tokyo-yellow",
+      "light": "tokyo-yellow"
+    },
+    "success": {
+      "dark": "tokyo-green",
+      "light": "tokyo-green"
+    },
+    "info": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "text": {
+      "dark": "tokyo-fg",
+      "light": "#3760bf"
+    },
+    "textMuted": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "background": {
+      "dark": "tokyo-bg",
+      "light": "tokyo-bg"
+    },
+    "backgroundPanel": {
+      "dark": "tokyo-bg-panel",
+      "light": "#e1e2e7"
+    },
+    "backgroundElement": {
+      "dark": "tokyo-bg-element",
+      "light": "#b4b5b9"
+    },
+    "border": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "borderActive": {
+      "dark": "tokyo-blue",
+      "light": "tokyo-blue"
+    },
+    "borderSubtle": {
+      "dark": "#414868",
+      "light": "#a8a9ae"
+    },
+    "diffAdded": {
+      "dark": "tokyo-green",
+      "light": "tokyo-green"
+    },
+    "diffRemoved": {
+      "dark": "tokyo-red",
+      "light": "tokyo-red"
+    },
+    "diffContext": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "diffHunkHeader": {
+      "dark": "tokyo-purple",
+      "light": "tokyo-purple"
+    },
+    "diffHighlightAdded": {
+      "dark": "tokyo-green",
+      "light": "tokyo-green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "tokyo-red",
+      "light": "tokyo-red"
+    },
+    "diffAddedBg": {
+      "dark": "#2b3b2b",
+      "light": "#d8ecd8"
+    },
+    "diffRemovedBg": {
+      "dark": "#3b2b2b",
+      "light": "#ecd8d8"
+    },
+    "diffContextBg": {
+      "dark": "tokyo-bg-dark",
+      "light": "#e1e2e7"
+    },
+    "diffLineNumber": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#2b3b2b",
+      "light": "#d8ecd8"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#3b2b2b",
+      "light": "#ecd8d8"
+    },
+    "markdownText": {
+      "dark": "tokyo-fg",
+      "light": "#3760bf"
+    },
+    "markdownHeading": {
+      "dark": "tokyo-blue",
+      "light": "tokyo-blue"
+    },
+    "markdownLink": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "markdownLinkText": {
+      "dark": "tokyo-magenta",
+      "light": "tokyo-magenta"
+    },
+    "markdownCode": {
+      "dark": "tokyo-green",
+      "light": "tokyo-green"
+    },
+    "markdownBlockQuote": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "markdownEmph": {
+      "dark": "tokyo-orange",
+      "light": "tokyo-orange"
+    },
+    "markdownStrong": {
+      "dark": "tokyo-yellow",
+      "light": "tokyo-yellow"
+    },
+    "markdownHorizontalRule": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "markdownListItem": {
+      "dark": "tokyo-blue",
+      "light": "tokyo-blue"
+    },
+    "markdownListEnumeration": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "markdownImage": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "markdownImageText": {
+      "dark": "tokyo-magenta",
+      "light": "tokyo-magenta"
+    },
+    "markdownCodeBlock": {
+      "dark": "tokyo-fg",
+      "light": "#3760bf"
+    },
+    "syntaxComment": {
+      "dark": "tokyo-fg-muted",
+      "light": "#8f5e15"
+    },
+    "syntaxKeyword": {
+      "dark": "tokyo-magenta",
+      "light": "tokyo-magenta"
+    },
+    "syntaxFunction": {
+      "dark": "tokyo-blue",
+      "light": "tokyo-blue"
+    },
+    "syntaxVariable": {
+      "dark": "tokyo-fg",
+      "light": "#3760bf"
+    },
+    "syntaxString": {
+      "dark": "tokyo-green",
+      "light": "tokyo-green"
+    },
+    "syntaxNumber": {
+      "dark": "tokyo-orange",
+      "light": "tokyo-orange"
+    },
+    "syntaxType": {
+      "dark": "tokyo-yellow",
+      "light": "tokyo-yellow"
+    },
+    "syntaxOperator": {
+      "dark": "tokyo-cyan",
+      "light": "tokyo-cyan"
+    },
+    "syntaxPunctuation": {
+      "dark": "tokyo-fg-dark",
+      "light": "#3760bf"
+    }
+  }
+}
