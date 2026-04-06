@@ -1,0 +1,29 @@
+[core]
+    editor = nvim
+	pager = delta
+
+[alias]
+    st = "status -sb"
+    cm = "commit -m"
+    co = checkout
+    cb = "checkout -b"
+    overlap = "commit --amend --no-edit"
+    lg = "log --oneline"
+	wt = worktree
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
+[credential]
+	helper = !gh auth git-credential
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[user]
+	email = thalesgelinger@gmail.com
+	name = Thales Gelinger

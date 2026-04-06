@@ -1,1 +1,5 @@
 .local/
+.config/configstore/
+.config/containers/
+.config/mole/
+.config/raycast/
