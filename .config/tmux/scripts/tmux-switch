@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+sessions=$(tmux list-sessions -F "#{session_name}")
+
+# Letters to use as shortcuts
+keys=(j k l a s d f)
+
+menu_cmd=(tmux display-menu -x C -y C)
+
+i=0
+for session in $sessions; do
+  key=${keys[$i]}
+
+  # Stop if we run out of letters
+  [ -z "$key" ] && break
+
+  menu_cmd+=("$session" "$key" "switch-client -t $session")
+  ((i++))
+done
+
+# Fallback if no sessions (very rare, but safe)
+if [ $i -eq 0 ]; then
+  menu_cmd+=("No sessions found" "" "")
+fi
+
+"${menu_cmd[@]}"

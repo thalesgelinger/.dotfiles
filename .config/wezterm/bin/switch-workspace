@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# switch-workspace: CLI tool to switch wezterm workspaces
+# Usage: switch-workspace <workspace-name>
+
+set -e
+
+WORKSPACE_NAME="$1"
+
+if [ -z "$WORKSPACE_NAME" ]; then
+    echo "Usage: switch-workspace <workspace-name>" >&2
+    exit 1
+fi
+
+# Paths from jumps.lua
+JUMPS_PATHS=(
+    "/Projects/stcx"
+    "/Projects/personal"
+    "/Projects/musico"
+    "/Projects/tendel"
+    "/Projects/herbalife"
+)
+
+# Aliases from jumps.lua
+declare -A ALIASES=(
+    [j]="/herbalife/leaf-design-system"
+    [k]="/herbalife/leaf-sample"
+)
+
+HOME_DIR="$HOME"
+
+# Check if workspace name is an alias
+if [ -n "${ALIASES[$WORKSPACE_NAME]}" ]; then
+    WORKSPACE_PATH="${HOME_DIR}${ALIASES[$WORKSPACE_NAME]}"
+    # Extract workspace name from path
+    WORKSPACE_NAME=$(basename "$WORKSPACE_PATH")
+else
+    # Search for matching folder in paths
+    WORKSPACE_PATH=""
+    for base_path in "${JUMPS_PATHS[@]}"; do
+        full_base="${HOME_DIR}${base_path}"
+        if [ -d "$full_base" ]; then
+            for dir in "$full_base"/*; do
+                if [ -d "$dir" ]; then
+                    dir_name=$(basename "$dir")
+                    if [ "$dir_name" = "$WORKSPACE_NAME" ]; then
+                        WORKSPACE_PATH="$dir"
+                        break 2
+                    fi
+                fi
+            done
+        fi
+    done
+fi
+
+# Check if workspace path was found
+if [ -z "$WORKSPACE_PATH" ]; then
+    wezterm notify-call "error" "Workspace '$WORKSPACE_NAME' not found in configured paths" 2>/dev/null || \
+    echo "Error: Workspace '$WORKSPACE_NAME' not found in configured paths" >&2
+    exit 1
+fi
+
+# Check if workspace already exists using wezterm cli
+EXISTING_WORKSPACE=$(wezterm cli list 2>/dev/null | grep -i "^$WORKSPACE_NAME\s" || true)
+
+if [ -n "$EXISTING_WORKSPACE" ]; then
+    # Workspace exists, switch to it
+    wezterm cli activate-workspace --workspace "$WORKSPACE_NAME" 2>/dev/null || {
+        wezterm notify-call "error" "Failed to switch to workspace '$WORKSPACE_NAME'" 2>/dev/null || \
+        echo "Error: Failed to switch to workspace '$WORKSPACE_NAME'" >&2
+        exit 1
+    }
+    wezterm notify-call "info" "Switched to workspace: $WORKSPACE_NAME" 2>/dev/null || true
+else
+    # Workspace doesn't exist, create it
+    wezterm cli spawn --workspace "$WORKSPACE_NAME" --cwd "$WORKSPACE_PATH" 2>/dev/null || {
+        wezterm notify-call "error" "Failed to create workspace '$WORKSPACE_NAME'" 2>/dev/null || \
+        echo "Error: Failed to create workspace '$WORKSPACE_NAME'" >&2
+        exit 1
+    }
+    wezterm notify-call "info" "Created and switched to workspace: $WORKSPACE_NAME" 2>/dev/null || true
+fi
+
+exit 0

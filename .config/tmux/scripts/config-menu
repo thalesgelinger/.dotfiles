@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# ========= USER CONFIG =========
+# key | label | path
+ENTRIES=(
+  "n|neovim|$HOME/.config/nvim"
+  "w|wezterm|$HOME/.config/wezterm"
+  "f|fish|$HOME/.config/fish"
+  "o|opencode|$HOME/.config/opencode"
+  "t|tmux|$HOME/.config/tmux"
+  "g|git|$HOME/.config/git"
+  "a|aerospace|$HOME/.config/aerospace"
+  "h|hammerspoon|$HOME/.config/hammerspoon"
+)
+# ===============================
+
+menu_cmd=(tmux display-menu -x C -y C)
+
+for entry in "${ENTRIES[@]}"; do
+  IFS="|" read -r key label path <<< "$entry"
+
+  # Skip if folder does not exist
+  [ -d "$path" ] || continue
+
+  menu_cmd+=(
+    "$label"
+    "$key"
+    "display-popup -E -d '$path' -w 90% -h 90% nvim ."
+  )
+done
+
+# Safety fallback
+[ "${#menu_cmd[@]}" -le 4 ] && menu_cmd+=("No entries configured" "" "")
+
+"${menu_cmd[@]}"

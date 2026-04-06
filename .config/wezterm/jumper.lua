@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 local projects_path = os.getenv("HOME") .. "/Projects"
 
-local project_shortcut = require "jumps"
+local project_shortcut = require "jumps".alias
 
 local keys = {}
 

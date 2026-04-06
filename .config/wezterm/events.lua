@@ -63,3 +63,13 @@ wezterm.on('augment-command-palette', function(window, pane)
         },
     }
 end)
+
+wezterm.on('toggle-transparency', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if overrides.window_background_opacity == 1 then
+        overrides.window_background_opacity = 0.8
+    else
+        overrides.window_background_opacity = 1
+    end
+    window:set_config_overrides(overrides)
+end)
