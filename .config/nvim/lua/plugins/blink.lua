@@ -2,8 +2,7 @@ return {
     'saghen/blink.cmp',
     dependencies = {
         'rafamadriz/friendly-snippets',
-        { 'L3MON4D3/LuaSnip',      version = 'v2.*' },
-        { "fang2hou/blink-copilot" }
+        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
     },
     version = 'v0.*',
     ---@module 'blink.cmp'
@@ -19,10 +18,10 @@ return {
         snippets = { preset = 'luasnip' },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
+            default = { "lsp", "path", "snippets", "buffer", "lazydev"  },
             per_filetype = {
                 sql = { 'snippets', 'dadbod', 'buffer' },
-                lua = { "lsp", "path", "snippets", "buffer", "lazydev", "copilot" },
+                lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
             },
             providers = {
                 dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
@@ -30,12 +29,6 @@ return {
                     name = "LazyDev",
                     module = "lazydev.integrations.blink",
                     score_offset = 100,
-                },
-                copilot = {
-                    name = "copilot",
-                    module = "blink-copilot",
-                    score_offset = 100,
-                    async = true,
                 },
             },
         },
