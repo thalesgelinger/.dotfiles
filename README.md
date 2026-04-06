@@ -21,6 +21,10 @@ This configs are made to work with macos
 
 `stow .`
 
+or run one-shot setup:
+
+`./setup-dev-machine.sh`
+
 
 Hammerspoon usefull stuff
 ```

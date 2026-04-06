@@ -1,0 +1,24 @@
+[tools]
+erlang = "latest"
+rust = "latest"
+elixir = "1.17.3"
+lua = "latest"
+go = "latest"
+python = "latest"
+pnpm = "latest"
+java = "21"
+ruby = "3.2"
+bun = "latest"
+node = "lts"
+deno = "latest"
+gradle = "latest"
+zig = "latest"
+
+[env]
+# Clear problematic LLVM flags for Ruby builds
+LDFLAGS = ""
+CPPFLAGS = ""
+RUBY_CONFIGURE_OPTS = "--disable-install-doc --with-openssl-dir=/opt/homebrew/opt/openssl@3 --with-readline-dir=/opt/homebrew/opt/readline"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
